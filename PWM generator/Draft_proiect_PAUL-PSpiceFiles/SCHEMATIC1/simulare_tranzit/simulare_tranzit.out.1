@@ -1,0 +1,78 @@
+
+**** 05/17/25 20:21:10 **** PSpice 24.1.0 (23 January 2025) *** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-simulare_tranzit"  [ d:\orcad work\cdssetup\workspace\projects\draft_proiect_paul\draft_proiect_paul-pspicef
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "simulare_tranzit.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "C:/Users/Paul/Desktop/dioda.lib" 
+
+ERROR(ORPSIM-16276): Simulation cannot be completed because library C:/Users/Paul/Desktop/dioda.lib 
+is not available.
+.LIB "C:/Users/Paul/Desktop/INFRAREDDIODE.lib" 
+
+ERROR(ORPSIM-16276): Simulation cannot be completed because library C:/Users/Paul/Desktop/INFRAREDDIODE.lib 
+is not available.
+.LIB "d:/orcad work/cdssetup/workspace/projects/draft_proiect2/diodaled.lib" 
+* From [PSPICE NETLIST] section of D:\Orcad Work\cdssetup\OrCAD_PSpice\24.1.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 1ms 0 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source DRAFT_PROIECT_PAUL
+V_V1         VCC 0 15V
+R_R13         0 N29998 R_R13 19k TC=0,0 
+.model        R_R13 RES R=1 DEV=1% TC1=0 TC2=0
+R_R5         VCC N30028 R_R5 9.8k TC=0,0 
+.model        R_R5 RES R=1 DEV=1% TC1=0 TC2=0
+X_R4         N300601 N30002 N30028 POT PARAMS: SET=0 VALUE=2.5k
+X_R10         N29998 N29892 N29892 POT PARAMS: SET=0 VALUE=50k
+R_R2         N29758 N29340 R_R2 20k TC=0,0 
+.model        R_R2 RES R=1 DEV=1% TC1=0 TC2=0
+V_V2         -VCC 0 -15V
+R_R1         N29518 N29340 R_R1 10k TC=0,0 
+.model        R_R1 RES R=1 DEV=1% TC1=0 TC2=0
+R_R3         N29350 N29440 R_R3 2k TC=0,0 
+.model        R_R3 RES R=1 DEV=1% TC1=0 TC2=0
+X_U3A         N29440 0 VCC -VCC N29296 TL082
+C_C1         N29340 N29350  2.7n  TC=0,0 
+X_U3B         N30002 N29350 VCC -VCC N29982 TL082
+X_U2B         0 N29340 VCC -VCC N29350 TL082
+D_D2         N29518 N29296 D1N4148 
+R_R12         N29440 N29296 R_R12 8.2k TC=0,0 
+.model        R_R12 RES R=1 DEV=1% TC1=0 TC2=0
+D_D1         N29296 N29758 D1N4148 
+R_R6         N300601 -VCC R_R6 13k TC=0,0 
+.model        R_R6 RES R=1 DEV=1% TC1=0 TC2=0
+R_R14         N29892 N29982 R_R14 4k TC=0,0 
+.model        R_R14 RES R=1 DEV=1% TC1=0 TC2=0
+D_D3         N35781 N35761 DIODALED 1
+X_U4A         N29998 N35162 VCC -VCC N35162 TL082
+R_R15         N35781 N35162 R_R15 1k TC=0,0 
+.model        R_R15 RES R=1 DEV=1% TC1=0 TC2=0
+D_D4         N35761 0 ZY10GP
+.IC         V(N29340 )=0
+
+**** RESUMING simulare_tranzit.cir ****
+.END
+

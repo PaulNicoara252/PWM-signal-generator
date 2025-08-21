@@ -1,0 +1,5 @@
+ lib="d:\orcad work\cdssetup\workspace\projects\draft_proiect2\diodaled.lib", offset=2240, size=160
+ lib=D:\OrCad\tools\PSpice\Library\diode.lib, offset=19555, size=328
+ lib=D:\OrCad\tools\PSpice\Library\breakout.lib, offset=431, size=44
+ lib=D:\OrCad\tools\PSpice\Library\breakout.lib, offset=8241, size=133
+ lib=D:\OrCad\tools\PSpice\Library\opamp.lib, offset=96448, size=1161

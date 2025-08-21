@@ -1,0 +1,7 @@
+STATUS: PSpice Model Import Wizard for "Capture" (24.1.0.d001)
+STATUS:  
+   INFO: OLB driven flow
+   INFO: Input File: D:\ORCAD WORK\CDSSETUP\WORKSPACE\PROJECTS\DRAFT_PROIECT_PAUL\DRAFT_PROIECT_PAUL00.olb
+   INFO: Symbol Name: DIODALED_0
+  ERROR: Symbol "DIODALED_0" not found in symbol library "D:\ORCAD WORK\CDSSETUP\WORKSPACE\PROJECTS\DRAFT_PROIECT_PAUL\DRAFT_PROIECT_PAUL00.olb".
+STATUS: 1 Error messages, 0 Warning messages

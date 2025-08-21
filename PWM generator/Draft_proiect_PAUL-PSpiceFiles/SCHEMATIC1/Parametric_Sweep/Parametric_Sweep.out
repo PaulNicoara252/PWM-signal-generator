@@ -1,0 +1,549 @@
+
+**** 05/19/25 08:53:56 **** PSpice 24.1.0 (23 January 2025) *** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Parametric_Sweep"  [ D:\Orcad Work\cdssetup\workspace\projects\draft_proiect_paul\draft_proiect_paul-pspicef
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "Parametric_Sweep.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "D:/Orcad Work/cdssetup/workspace/projects/draft_proiect2/diodaled.lib" 
+* From [PSPICE NETLIST] section of D:\Orcad Work\cdssetup\OrCAD_PSpice\24.1.0\PSpice.ini file:
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 0.25m 0 
+.STEP LIN PARAM cursor1 0 1 0.5 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source DRAFT_PROIECT_PAUL
+.EXTERNAL OUTPUT out
+V_V1         VCC 0 15V
+R_R8         N300141 N29998 R_R8 18k TC=0,0 
+.model        R_R8 RES R=1 DEV=1% TC1=0 TC2=0
+R_R5         VCC N30028 R_R5 10k TC=0,0 
+.model        R_R5 RES R=1 DEV=1% TC1=0 TC2=0
+X_P1         N300601 N30002 N30028 POT PARAMS: SET={cursor1} VALUE=2.5k
+X_P2         N29998 N29892 N29892 POT PARAMS: SET={cursor2} VALUE=51k
+R_R2         N29758 N29340 R_R2 20k TC=0,0 
+.model        R_R2 RES R=1 DEV=1% TC1=0 TC2=0
+V_V2         -VCC 0 -15V
+R_R1         N29518 N29340 R_R1 10k TC=0,0 
+.model        R_R1 RES R=1 DEV=1% TC1=0 TC2=0
+R_R3         VPRAG N29440 R_R3 2k TC=0,0 
+.model        R_R3 RES R=1 DEV=1% TC1=0 TC2=0
+X_U3A         N29440 0 VCC -VCC N29296 TL082
+C_C1         N29340 VPRAG C_C1 2.7n  TC=0,0 
+.model        C_C1 CAP C=1 DEV=1% TC1=0 TC2=0 VC1=0 VC2=0
+X_U3B         N30002 VPRAG VCC -VCC N37316 TL082
+X_U2B         0 N29340 VCC -VCC VPRAG TL082
+D_D2         N29518 N29296 D1N4148 
+R_R4         N29440 N29296 R_R4 8.2k TC=0,0 
+.model        R_R4 RES R=1 DEV=1% TC1=0 TC2=0
+D_D1         N29296 N29758 D1N4148 
+R_R6         N300601 -VCC R_R6 13k TC=0,0 
+.model        R_R6 RES R=1 DEV=1% TC1=0 TC2=0
+R_R7         N29892 N37316 R_R7 3.9k TC=0,0 
+.model        R_R7 RES R=1 DEV=1% TC1=0 TC2=0
+D_D3         N37464 N37483 DIODALED 1
+X_U4A         N29998 OUT VCC -VCC OUT TL082
+R_R10         N37464 OUT R_R10 560 TC=0,0 
+.model        R_R10 RES R=1 DEV=1% TC1=0 TC2=0
+R_R9         0 N300141 R_R9 1k TC=0,0 
+.model        R_R9 RES R=1 DEV=1% TC1=0 TC2=0
+D_D4         N37483 0 Dbreak 
+.IC         V(N29340 )=0
+.PARAM  cursor1=1 cursor2=1
+
+**** RESUMING Parametric_Sweep.cir ****
+.END
+
+**** 05/19/25 08:53:56 **** PSpice 24.1.0 (23 January 2025) *** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Parametric_Sweep"  [ D:\Orcad Work\cdssetup\workspace\projects\draft_proiect_paul\draft_proiect_paul-pspicef
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               DIODALED        D1N4148         Dbreak          X_U3A.dx        
+          IS  168.630000E-15    2.682000E-09   10.000000E-15  800.000000E-18 
+           N    3.1728          1.836                                        
+         ISR    1.509600E-06    1.565000E-09                                 
+          NR    4.995                                                        
+         IKF                     .04417                                      
+          BV    5.3752        100                                            
+         IBV   10             100.000000E-06                                 
+          RS    1.8496           .5664           .1                          
+          TT    5.000000E-09   11.540000E-09                                 
+         CJO    1.000000E-12    4.000000E-12  100.000000E-15                 
+          VJ     .75             .5                                          
+           M     .3333           .3333                                       
+
+
+               X_U3A.dy        X_U3B.dx        X_U3B.dy        X_U2B.dx        
+          IS  800.000000E-18  800.000000E-18  800.000000E-18  800.000000E-18 
+          RS    1.000000E-03                    1.000000E-03                 
+         CJO   10.000000E-12                   10.000000E-12                 
+
+
+               X_U2B.dy        X_U4A.dx        X_U4A.dy        
+          IS  800.000000E-18  800.000000E-18  800.000000E-18 
+          RS    1.000000E-03                    1.000000E-03 
+         CJO   10.000000E-12                   10.000000E-12 
+
+
+**** 05/19/25 08:53:56 **** PSpice 24.1.0 (23 January 2025) *** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Parametric_Sweep"  [ D:\Orcad Work\cdssetup\workspace\projects\draft_proiect_paul\draft_proiect_paul-pspicef
+
+
+ ****     Junction FET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U3A.jx1       X_U3A.jx2       X_U3B.jx1       X_U3B.jx2       
+               NJF             NJF             NJF             NJF             
+         VTO   -1              -1              -1              -1            
+        BETA  222.070000E-06  222.070000E-06  222.070000E-06  222.070000E-06 
+          IS  100.000000E-12  100.000000E-12  100.000000E-12  100.000000E-12 
+
+
+               X_U2B.jx1       X_U2B.jx2       X_U4A.jx1       X_U4A.jx2       
+               NJF             NJF             NJF             NJF             
+         VTO   -1              -1              -1              -1            
+        BETA  222.070000E-06  222.070000E-06  222.070000E-06  222.070000E-06 
+          IS  100.000000E-12  100.000000E-12  100.000000E-12  100.000000E-12 
+
+
+**** 05/19/25 08:53:56 **** PSpice 24.1.0 (23 January 2025) *** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Parametric_Sweep"  [ D:\Orcad Work\cdssetup\workspace\projects\draft_proiect_paul\draft_proiect_paul-pspicef
+
+
+ ****     Resistor MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               R_R8            R_R5            R_R2            R_R1            
+           R    1               1               1               1            
+
+
+               R_R3            R_R4            R_R6            R_R7            
+           R    1               1               1               1            
+
+
+               R_R10           R_R9            
+           R    1               1            
+
+
+**** 05/19/25 08:53:56 **** PSpice 24.1.0 (23 January 2025) *** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Parametric_Sweep"  [ D:\Orcad Work\cdssetup\workspace\projects\draft_proiect_paul\draft_proiect_paul-pspicef
+
+
+ ****     Capacitor MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               C_C1            
+           C    1            
+
+
+**** 05/19/25 08:53:56 **** PSpice 24.1.0 (23 January 2025) *** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Parametric_Sweep"  [ D:\Orcad Work\cdssetup\workspace\projects\draft_proiect_paul\draft_proiect_paul-pspicef
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CURSOR1 =    0     
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  OUT)   11.2010  (  VCC)   15.0000  ( -VCC)  -15.0000  (VPRAG)   -3.3486      
+
+(N29296)  -13.4990 (N29340)-2.576E-06 (N29440)   -5.3389 (N29518)  -12.8820     
+
+(N29758)-151.2E-06 (N29892)   11.2010 (N29998)   11.2010 (N30002)    3.2353     
+
+(N30028)    3.2353 (N37316)   13.5000 (N37464)    1.9805 (N37483)     .7292     
+
+(N300141)     .5895                   (N300601)     .2941                       
+
+(X_U2B.6) 308.4E-06                   (X_U2B.7)   -3.2989                       
+
+(X_U2B.8)   -3.2989                   (X_U2B.9)    0.0000                       
+
+(X_U3A.6)   16.0130                   (X_U3A.7)  -15.5330                       
+
+(X_U3A.8)  -15.5330                   (X_U3A.9)    0.0000                       
+
+(X_U3B.6)  -16.2680                   (X_U3B.7)   15.5340                       
+
+(X_U3B.8)   15.5340                   (X_U3B.9)    0.0000                       
+
+(X_U4A.6)    -.0012                   (X_U4A.7)   12.0240                       
+
+(X_U4A.8)   12.0240                   (X_U4A.9)    0.0000                       
+
+(X_U2B.10)     .3992                  (X_U2B.11)   14.5750                      
+
+(X_U2B.12)   14.5750                  (X_U2B.53)   12.6840                      
+
+(X_U2B.54)  -12.6840                  (X_U2B.90)     .9951                      
+
+(X_U2B.91)   40.0000                  (X_U2B.92)  -40.0000                      
+
+(X_U2B.99)    0.0000                  (X_U3A.10)     .1509                      
+
+(X_U3A.11)   14.1510                  (X_U3A.12)   15.0000                      
+
+(X_U3A.53)   12.6840                  (X_U3A.54)  -12.6840                      
+
+(X_U3A.90)  -40.6730                  (X_U3A.91)   40.0000                      
+
+(X_U3A.92)  -40.0000                  (X_U3A.99)    0.0000                      
+
+(X_U3B.10)    3.3793                  (X_U3B.11)   15.0000                      
+
+(X_U3B.12)   14.1370                  (X_U3B.53)   12.6840                      
+
+(X_U3B.54)  -12.6840                  (X_U3B.90)   40.6740                      
+
+(X_U3B.91)   40.0000                  (X_U3B.92)  -40.0000                      
+
+(X_U3B.99)    0.0000                  (X_U4A.10)   11.5830                      
+
+(X_U4A.11)   14.5510                  (X_U4A.12)   14.5510                      
+
+(X_U4A.53)   12.6840                  (X_U4A.54)  -12.6840                      
+
+(X_U4A.90)   16.4640                  (X_U4A.91)   40.0000                      
+
+(X_U4A.92)  -40.0000                  (X_U4A.99)    0.0000                  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -5.241E-02
+    V_V2         5.410E-02
+    X_U3A.vb     1.601E-04
+    X_U3A.vc     2.714E-11
+    X_U3A.ve    -3.839E-02
+    X_U3A.vlim  -4.067E-02
+    X_U3A.vlp   -8.363E-11
+    X_U3A.vln    1.609E-04
+    X_U3B.vb    -1.627E-04
+    X_U3B.vc    -4.008E-02
+    X_U3B.ve     2.842E-11
+    X_U3B.vlim   4.067E-02
+    X_U3B.vlp    1.634E-04
+    X_U3B.vln   -8.363E-11
+    X_U2B.vb     3.084E-09
+    X_U2B.vc     1.662E-11
+    X_U2B.ve     1.095E-11
+    X_U2B.vlim   9.951E-04
+    X_U2B.vlp   -4.043E-11
+    X_U2B.vln   -4.250E-11
+    X_U4A.vb    -1.175E-08
+    X_U4A.vc     1.539E-12
+    X_U4A.ve     2.603E-11
+    X_U4A.vlim   1.646E-02
+    X_U4A.vlp   -2.440E-11
+    X_U4A.vln   -5.853E-11
+
+    TOTAL POWER DISSIPATION   1.77E+00  WATTS
+
+
+**** 05/19/25 08:53:56 **** PSpice 24.1.0 (23 January 2025) *** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Parametric_Sweep"  [ D:\Orcad Work\cdssetup\workspace\projects\draft_proiect_paul\draft_proiect_paul-pspicef
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CURSOR1 =     .5   
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  OUT)   11.2010  (  VCC)   15.0000  ( -VCC)  -15.0000  (VPRAG)   -3.3486      
+
+(N29296)  -13.4990 (N29340)-2.576E-06 (N29440)   -5.3389 (N29518)  -12.8820     
+
+(N29758)-151.2E-06 (N29892)   11.2010 (N29998)   11.2010 (N30002)    1.7647     
+
+(N30028)    3.2353 (N37316)   13.5000 (N37464)    1.9805 (N37483)     .7292     
+
+(N300141)     .5895                   (N300601)     .2941                       
+
+(X_U2B.6) 308.4E-06                   (X_U2B.7)   -3.2989                       
+
+(X_U2B.8)   -3.2989                   (X_U2B.9)    0.0000                       
+
+(X_U3A.6)   16.0130                   (X_U3A.7)  -15.5330                       
+
+(X_U3A.8)  -15.5330                   (X_U3A.9)    0.0000                       
+
+(X_U3B.6)  -16.1520                   (X_U3B.7)   15.5340                       
+
+(X_U3B.8)   15.5340                   (X_U3B.9)    0.0000                       
+
+(X_U4A.6)    -.0012                   (X_U4A.7)   12.0240                       
+
+(X_U4A.8)   12.0240                   (X_U4A.9)    0.0000                       
+
+(X_U2B.10)     .3992                  (X_U2B.11)   14.5750                      
+
+(X_U2B.12)   14.5750                  (X_U2B.53)   12.6840                      
+
+(X_U2B.54)  -12.6840                  (X_U2B.90)     .9951                      
+
+(X_U2B.91)   40.0000                  (X_U2B.92)  -40.0000                      
+
+(X_U2B.99)    0.0000                  (X_U3A.10)     .1509                      
+
+(X_U3A.11)   14.1510                  (X_U3A.12)   15.0000                      
+
+(X_U3A.53)   12.6840                  (X_U3A.54)  -12.6840                      
+
+(X_U3A.90)  -40.6730                  (X_U3A.91)   40.0000                      
+
+(X_U3A.92)  -40.0000                  (X_U3A.99)    0.0000                      
+
+(X_U3B.10)    1.9118                  (X_U3B.11)   15.0000                      
+
+(X_U3B.12)   14.1430                  (X_U3B.53)   12.6840                      
+
+(X_U3B.54)  -12.6840                  (X_U3B.90)   40.6730                      
+
+(X_U3B.91)   40.0000                  (X_U3B.92)  -40.0000                      
+
+(X_U3B.99)    0.0000                  (X_U4A.10)   11.5830                      
+
+(X_U4A.11)   14.5510                  (X_U4A.12)   14.5510                      
+
+(X_U4A.53)   12.6840                  (X_U4A.54)  -12.6840                      
+
+(X_U4A.90)   16.4640                  (X_U4A.91)   40.0000                      
+
+(X_U4A.92)  -40.0000                  (X_U4A.99)    0.0000                  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -5.241E-02
+    V_V2         5.410E-02
+    X_U3A.vb     1.601E-04
+    X_U3A.vc     2.714E-11
+    X_U3A.ve    -3.839E-02
+    X_U3A.vlim  -4.067E-02
+    X_U3A.vlp   -8.363E-11
+    X_U3A.vln    1.609E-04
+    X_U3B.vb    -1.615E-04
+    X_U3B.vc    -4.008E-02
+    X_U3B.ve     2.842E-11
+    X_U3B.vlim   4.067E-02
+    X_U3B.vlp    1.622E-04
+    X_U3B.vln   -8.363E-11
+    X_U2B.vb     3.084E-09
+    X_U2B.vc     1.662E-11
+    X_U2B.ve     1.095E-11
+    X_U2B.vlim   9.951E-04
+    X_U2B.vlp   -4.043E-11
+    X_U2B.vln   -4.250E-11
+    X_U4A.vb    -1.175E-08
+    X_U4A.vc     1.539E-12
+    X_U4A.ve     2.603E-11
+    X_U4A.vlim   1.646E-02
+    X_U4A.vlp   -2.440E-11
+    X_U4A.vln   -5.853E-11
+
+    TOTAL POWER DISSIPATION   1.77E+00  WATTS
+
+
+**** 05/19/25 08:53:56 **** PSpice 24.1.0 (23 January 2025) *** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Parametric_Sweep"  [ D:\Orcad Work\cdssetup\workspace\projects\draft_proiect_paul\draft_proiect_paul-pspicef
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+ ****     CURRENT STEP                     PARAM CURSOR1 =    1     
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  OUT)   11.2010  (  VCC)   15.0000  ( -VCC)  -15.0000  (VPRAG)   -3.3486      
+
+(N29296)  -13.4990 (N29340)-2.576E-06 (N29440)   -5.3389 (N29518)  -12.8820     
+
+(N29758)-151.2E-06 (N29892)   11.2010 (N29998)   11.2010 (N30002)     .2941     
+
+(N30028)    3.2353 (N37316)   13.5000 (N37464)    1.9805 (N37483)     .7292     
+
+(N300141)     .5895                   (N300601)     .2941                       
+
+(X_U2B.6) 308.4E-06                   (X_U2B.7)   -3.2988                       
+
+(X_U2B.8)   -3.2988                   (X_U2B.9)    0.0000                       
+
+(X_U3A.6)   16.0130                   (X_U3A.7)  -15.5330                       
+
+(X_U3A.8)  -15.5330                   (X_U3A.9)    0.0000                       
+
+(X_U3B.6)  -16.0360                   (X_U3B.7)   15.5340                       
+
+(X_U3B.8)   15.5340                   (X_U3B.9)    0.0000                       
+
+(X_U4A.6)    -.0012                   (X_U4A.7)   12.0240                       
+
+(X_U4A.8)   12.0240                   (X_U4A.9)    0.0000                       
+
+(X_U2B.10)     .3992                  (X_U2B.11)   14.5750                      
+
+(X_U2B.12)   14.5750                  (X_U2B.53)   12.6840                      
+
+(X_U2B.54)  -12.6840                  (X_U2B.90)     .9951                      
+
+(X_U2B.91)   40.0000                  (X_U2B.92)  -40.0000                      
+
+(X_U2B.99)    0.0000                  (X_U3A.10)     .1509                      
+
+(X_U3A.11)   14.1510                  (X_U3A.12)   15.0000                      
+
+(X_U3A.53)   12.6840                  (X_U3A.54)  -12.6840                      
+
+(X_U3A.90)  -40.6730                  (X_U3A.91)   40.0000                      
+
+(X_U3A.92)  -40.0000                  (X_U3A.99)    0.0000                      
+
+(X_U3B.10)     .4444                  (X_U3B.11)   15.0000                      
+
+(X_U3B.12)   14.1490                  (X_U3B.53)   12.6840                      
+
+(X_U3B.54)  -12.6840                  (X_U3B.90)   40.6730                      
+
+(X_U3B.91)   40.0000                  (X_U3B.92)  -40.0000                      
+
+(X_U3B.99)    0.0000                  (X_U4A.10)   11.5830                      
+
+(X_U4A.11)   14.5510                  (X_U4A.12)   14.5510                      
+
+(X_U4A.53)   12.6840                  (X_U4A.54)  -12.6840                      
+
+(X_U4A.90)   16.4640                  (X_U4A.91)   40.0000                      
+
+(X_U4A.92)  -40.0000                  (X_U4A.99)    0.0000                  
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -5.241E-02
+    V_V2         5.410E-02
+    X_U3A.vb     1.601E-04
+    X_U3A.vc     2.618E-11
+    X_U3A.ve    -3.839E-02
+    X_U3A.vlim  -4.067E-02
+    X_U3A.vlp   -8.067E-11
+    X_U3A.vln    1.609E-04
+    X_U3B.vb    -1.604E-04
+    X_U3B.vc    -4.008E-02
+    X_U3B.ve     2.792E-11
+    X_U3B.vlim   4.067E-02
+    X_U3B.vlp    1.611E-04
+    X_U3B.vln   -8.067E-11
+    X_U2B.vb     3.084E-09
+    X_U2B.vc     1.603E-11
+    X_U2B.ve     1.107E-11
+    X_U2B.vlim   9.951E-04
+    X_U2B.vlp   -3.901E-11
+    X_U2B.vln   -4.100E-11
+    X_U4A.vb    -1.175E-08
+    X_U4A.vc     1.484E-12
+    X_U4A.ve     2.562E-11
+    X_U4A.vlim   1.646E-02
+    X_U4A.vlp   -2.354E-11
+    X_U4A.vln   -5.647E-11
+
+    TOTAL POWER DISSIPATION   1.77E+00  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 05/19/25 08:53:56 **** PSpice 24.1.0 (23 January 2025) *** ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-Parametric_Sweep"  [ D:\Orcad Work\cdssetup\workspace\projects\draft_proiect_paul\draft_proiect_paul-pspicef
+
+
+ ****     JOB STATISTICS SUMMARY
+
+ ****     CURRENT STEP                     PARAM CURSOR1 =    1     
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .39
+
